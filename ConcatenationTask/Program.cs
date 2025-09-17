@@ -4,17 +4,20 @@
     {
         static void Main(string[] args)
         {
-            string FirstName;
-            Console.Write("Enter first name: ");
-            FirstName = Console.ReadLine();
-            // add two more variables for the users last name and their age
-            // take these inputs into the program
-            // use the test data Bob, Smith, 14
-            // ammend this code to output in one command
-            // Hello Bob Smith you are 14 years old
-            Console.WriteLine(FirstName);
-            // save and commit your program
-            // add evidence of the test input and your own input running the program
+             Console.Write("enter a comma-separated list of numbers\n$ ");
+        string[] arr = Console.ReadLine()!.Split(",");  
+        int[] array = Array.ConvertAll(arr, int.Parse);
+        int[] array2 = new int[array.Length];
+        int value = 1;
+        for (int i = 0; i < array.Length; i++) {
+            array2 = array.Where((x,j) => j!=i).ToArray();
+            foreach (int k in array2) {
+                value *= k;
+            }
+            Console.WriteLine($"\x1b[92m{value}");
+            value = 1;
+        }
+        Console.WriteLine("\x1b[0m");
         }
     }
 }
